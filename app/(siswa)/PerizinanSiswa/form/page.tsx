@@ -15,12 +15,14 @@ import Banner from "./Banner/Banner";
 
 export default function FormPage() {
   const [fileName, setFileName] = useState("");
+  const [isUploaded, setIsUploaded] = useState(false);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
-      setFileName(event.target.files[0].name);
+    const file = event.target.files && event.target.files[0];
+    if (file && file.type.startsWith("image/")) {
+      setFileName(file.name);
+      setIsUploaded(true); // Mengatur state isUploaded menjadi true setelah file diunggah } else { setFileName(''); setIsUploaded(false); // Reset state jika file yang diunggah bukan gambar alert('Harap unggah file foto.');
     }
   };
-
   const handleButtonClick = () => {
     const fileInput = document.getElementById(
       "file-upload"
@@ -29,6 +31,7 @@ export default function FormPage() {
       fileInput.click();
     }
   };
+
   return (
     <div className="min-h-screen bg-cover bg-center bg-no-repeat relative">
       <div className="absolute inset-0 -z-10">
@@ -189,17 +192,18 @@ export default function FormPage() {
                       ? fileName
                       : "Seret file atau klik tombol di bawah"}
                   </p>{" "}
-                  <Button
-                    variant="secondary"
-                    className="mt-2 bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97]"
-                    onClick={handleButtonClick}
-                  >
-                    {" "}
-                    Unggah{" "}
-                  </Button>{" "}
+                  {!isUploaded && (
+                    <Button
+                      variant="secondary"
+                      className="mt-2 bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97]"
+                      onClick={handleButtonClick}
+                    >
+                      {" "}
+                      Unggah{" "}
+                    </Button>
+                  )}{" "}
                 </div>{" "}
               </div>
-
               <div className="grid gap-6 md:grid-cols-2 bg-[#EFF0FB] p-4 rounded-lg">
                 <div className="space-y-2">
                   <Label className="text-label" htmlFor="teacher">
