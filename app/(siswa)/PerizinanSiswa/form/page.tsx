@@ -9,38 +9,42 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import Banner from "./Banner/Banner";
 
 export default function FormPage() {
+
   return (
     <div className="min-h-screen bg-cover bg-center bg-no-repeat relative">
       <div className="absolute inset-0 -z-10">
         <Banner />
       </div>
 
-      <div className="container mx-auto px-8 py-8">
-        <div className="text-center text-white mb-8">
-          <h1 className="text-3xl font-medium mb-2">Perizinan Siswa</h1>
-          <p className="text-sm">
-            Platform untuk mempermudah rekapitulasi siswa secara digital
-          </p>
-        </div>
-
-        <Card className="max-w-3xl mx-auto">
-          <CardContent className="p-6">
-            <form className="space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
+      <div className="container mx-auto px-8 py-[2.2rem] ">
+        <Card className="max-w-[52rem] mt-20 sm:mt-20 md:mt-60 lg:mt-60 xl:mt-60 rounded-2xl mx-auto p-5">
+          <CardContent className="p-6 ">
+            <form className="space-y-6 ">
+              <div className="grid gap-6 md:grid-cols-2 ">
                 <div className="space-y-2">
-                  <Label htmlFor="fullName">Nama Lengkap</Label>
-                  <Input id="fullName" placeholder="Nama Lengkap" />
+                  <Label className="text-label" htmlFor="fullName">
+                    Nama Lengkap
+                  </Label>
+                  <Input
+                    className="text-label-input"
+                    id="fullName"
+                    placeholder="Nama Lengkap"
+                  />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="gender">Jenis Kelamin</Label>
+                  <Label className="text-label" htmlFor="izin">
+                    Izin
+                  </Label>
                   <Select>
                     <SelectTrigger>
-                      <SelectValue placeholder="Pilih salah satu" />
+                      <SelectValue
+                        className="text-label-input"
+                        placeholder="Pilih salah satu"
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="l">Laki-laki</SelectItem>
@@ -50,7 +54,9 @@ export default function FormPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="class">Kelas</Label>
+                  <Label className="text-label" htmlFor="class">
+                    Kelas
+                  </Label>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih salah satu" />
@@ -64,12 +70,22 @@ export default function FormPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="date">Tanggal</Label>
-                  <Input type="date" id="date" />
+                  {" "}
+                  <label className="text-label" htmlFor="date">
+                    Tanggal
+                  </label>{" "}
+                  <input
+                    type="date"
+                    id="date"
+                    placeholder="Tanggal"
+                    className="block w-full rounded-md border-2 px-2 py-2.5 text-gray-900 shadow-sm outline-none focus:border-[#4C56AA] focus:ring-1 focus:ring-[#4C56AA] placeholder-gray-400 sm:text-sm sm:leading-6"
+                  />{" "}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="department">Jurusan</Label>
+                  <Label className="text-label" htmlFor="department">
+                    Jurusan
+                  </Label>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih salah satu" />
@@ -83,7 +99,7 @@ export default function FormPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Jam Ke</Label>
+                  <Label className="text-label">Jam Ke</Label>
                   <div className="grid grid-cols-3 gap-2">
                     <Select>
                       <SelectTrigger>
@@ -116,27 +132,31 @@ export default function FormPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="classCode">Kode Kelas</Label>
+                  <Label className="text-label" htmlFor="classCode">
+                    Kode Kelas
+                  </Label>
                   <Input id="classCode" placeholder="Kode Kelas" />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Mata pelajaran</Label>
+                  <Label className="text-label" htmlFor="subject">
+                    Mata pelajaran
+                  </Label>
                   <Input id="subject" placeholder="Mata Pelajaran" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="reason">Alasan</Label>
-                <Textarea
-                  id="reason"
-                  placeholder="Isi alasan"
-                  className="min-h-[100px]"
-                />
+                <Label className="text-label" htmlFor="reason">
+                  Alasan
+                </Label>
+                <Input id="classCode" placeholder="Berikan Alasan" />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="proof">Unggah Bukti</Label>
+                <Label className="text-label" htmlFor="proof">
+                  Unggah Bukti
+                </Label>
                 <div className="bg-slate-50 p-4 rounded-lg text-center border-2 border-dashed">
                   <p className="text-sm text-slate-500">
                     Seret file atau klik tombol dibawah
@@ -147,9 +167,26 @@ export default function FormPage() {
                 </div>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-2 bg-[#EFF0FB] p-4 rounded-lg">
                 <div className="space-y-2">
-                  <Label htmlFor="teacher">Guru/Petugas Piket</Label>
+                  <Label className="text-label" htmlFor="teacher">
+                    Guru Bidang Diklat
+                  </Label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Pilih salah satu" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="teacher1">Guru 1</SelectItem>
+                      <SelectItem value="teacher2">Guru 2</SelectItem>
+                      <SelectItem value="teacher3">Guru 3</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-label" htmlFor="teacher">
+                    Petugas Tatib / Piket
+                  </Label>
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Pilih salah satu" />
@@ -162,8 +199,7 @@ export default function FormPage() {
                   </Select>
                 </div>
               </div>
-
-              <Button className="w-full" size="lg">
+              <Button className=" w-[18%] flex mx-auto" size="sm">
                 Kirim
               </Button>
             </form>
@@ -171,6 +207,10 @@ export default function FormPage() {
         </Card>
 
         <footer className="text-center text-black mt-8">
+          <div className="p-4">
+            {" "}
+            <hr className="w-full mx-auto border-[1px] border-[#B0B0B0] my-4" />{" "}
+          </div>
           <p className="text-sm">
             © Perizinan Siswa 2024. All rights reserved.
           </p>

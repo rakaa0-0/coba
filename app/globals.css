@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: noto-sans, sans-serif;
+}
+
+.text-label{
+  @apply ml-3 font-medium;
+}
+
+.text-label-input{
+  @apply text-[#8F8F8F]
+}
+
+.buttonton{
+  @apply bg-[#434D97] text-white
+}
+
+.buttonton:hover{
+  @apply bg-white border-2 border-[#434D97] text-[#434D97]
 }
 
 @layer base {
@@ -69,4 +85,6 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  
+
 }
