@@ -49,7 +49,7 @@ export default function FormPage() {
                     <SelectContent>
                       <SelectItem value="masuk">Masuk</SelectItem>
                       <SelectItem value="keluar">Keluar</SelectItem>
-                      <SelectItem value="keluar">Pulang</SelectItem>
+                      <SelectItem value="pulang">Pulang</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
