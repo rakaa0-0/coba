@@ -47,8 +47,9 @@ export default function FormPage() {
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="l">Laki-laki</SelectItem>
-                      <SelectItem value="p">Perempuan</SelectItem>
+                      <SelectItem value="masuk">Masuk</SelectItem>
+                      <SelectItem value="keluar">Keluar</SelectItem>
+                      <SelectItem value="keluar">Pulang</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
