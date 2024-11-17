@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,7 +14,21 @@ import {
 import Banner from "./Banner/Banner";
 
 export default function FormPage() {
+  const [fileName, setFileName] = useState("");
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFileName(event.target.files[0].name);
+    }
+  };
 
+  const handleButtonClick = () => {
+    const fileInput = document.getElementById(
+      "file-upload"
+    ) as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
   return (
     <div className="min-h-screen bg-cover bg-center bg-no-repeat relative">
       <div className="absolute inset-0 -z-10">
@@ -155,17 +171,33 @@ export default function FormPage() {
               </div>
 
               <div className="space-y-2">
+                {" "}
                 <Label className="text-label" htmlFor="proof">
                   Unggah Bukti
-                </Label>
-                <div className="bg-slate-50 p-4 rounded-lg text-center border-2 border-dashed">
+                </Label>{" "}
+                <div className="bg-slate-50 p-4 rounded-lg text-center border-2 border-dashed relative">
+                  {" "}
+                  <input
+                    type="file"
+                    id="file-upload"
+                    accept="image/*"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    onChange={handleFileChange}
+                  />{" "}
                   <p className="text-sm text-slate-500">
-                    Seret file atau klik tombol dibawah
-                  </p>
-                  <Button variant="secondary" className="mt-2">
-                    Unggah
-                  </Button>
-                </div>
+                    {fileName
+                      ? fileName
+                      : "Seret file atau klik tombol di bawah"}
+                  </p>{" "}
+                  <Button
+                    variant="secondary"
+                    className="mt-2 bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97]"
+                    onClick={handleButtonClick}
+                  >
+                    {" "}
+                    Unggah{" "}
+                  </Button>{" "}
+                </div>{" "}
               </div>
 
               <div className="grid gap-6 md:grid-cols-2 bg-[#EFF0FB] p-4 rounded-lg">
@@ -200,7 +232,10 @@ export default function FormPage() {
                   </Select>
                 </div>
               </div>
-              <Button className="bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97] w-[18%] flex mx-auto" size="sm">
+              <Button
+                className="bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97] w-[18%] flex mx-auto"
+                size="sm"
+              >
                 Kirim
               </Button>
             </form>
