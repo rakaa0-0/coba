@@ -200,7 +200,7 @@ export default function FormPage() {
                   </Select>
                 </div>
               </div>
-              <Button className=" w-[18%] flex mx-auto" size="sm">
+              <Button className="bg-[#434D97] text-white hover:bg-white border-2 border-[#434D97] hover:text-[#434D97] w-[18%] flex mx-auto" size="sm">
                 Kirim
               </Button>
             </form>
